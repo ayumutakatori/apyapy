@@ -1,14 +1,9 @@
-require 'net/http'
-require 'openssl'
-require 'base64'
-require 'json'
-
-class Slapi
+module Slapi
   class Client
     def initialize(base_url, access_token = nil)
       @base_url = base_url
       @access_token = access_token
-      @authentication = Sampli::Authentication.new(@base_url)
+      @authentication = Slapi::Authentication.new(@base_url)
       @content_type = 'application/x-www-form-urlencoded'
       @request_header = {
         'Authorization' => "Bearer #{@access_token}",
@@ -36,7 +31,7 @@ class Slapi
       JSON.parse(response.body)
     end
 
-    def post(path, params = {})
+    def post(path, params = "")
       # TODO 実装
     end
   end

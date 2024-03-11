@@ -1,4 +1,4 @@
-class Slapi
+module Slapi
   class Authentication
     def initialize(base_url)
       @base_url = base_url
